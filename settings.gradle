@@ -1,2 +1,5 @@
-rootProject.name='DemoLi'
+
 include ':app'
+include ':sub-base'
+include ':StatusBar'
+rootProject.name='DemoLi'

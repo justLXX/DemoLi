@@ -1,11 +1,10 @@
 package com.example.demoli
 
-import android.graphics.Rect
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.TouchDelegate
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.example.sub_base.showVersionDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,21 +12,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        llName.post {
-
-            val rect = Rect(llName.left, llName.top, 840, llName.bottom)
-
-            llName.touchDelegate =
-                TouchDelegate(rect, tvName)
+    }
 
 
-            tvName.setOnClickListener {
-                Toast.makeText(this, "tvName 被点击", Toast.LENGTH_LONG).show()
-            }
-        }
+    fun jumpHeightLimitActivity(view: View) {
+        startActivity(Intent(this, HeightLimitActivity::class.java))
+    }
 
-//        llName.setOnClickListener {
-//            Toast.makeText(this, "llName 被点击", Toast.LENGTH_LONG).show()
-//        }
+    fun jumpSingleTaskAffinity(view: View) {
+        startActivity(Intent(this, TaskAffinityActivity::class.java))
+    }
+
+    fun showDevice(view: View) {
+        showVersionDialog(this)
     }
 }
+
